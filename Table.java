@@ -55,14 +55,6 @@ public class Table {
 					personCount++;
 				}
 			}	
-				
-				
-			
-			
-			
-		}
-		
-		
-	}
+	}			
 
 }
