@@ -5,13 +5,45 @@ public class Table {
 	
 	public Table() {
 	// take stuff out of the main method and put here
-	}	
-
-	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
 		
 		Deck deck = new Deck();
+		
+		ArrayList<Player> players = new ArrayList<Player>(); // fix this stuff for player construct	
+
+		System.out.println("How many players?"); 
+		int numUsers = scan.nextInt();
+		if (numUsers < 3 || numUsers > 7) {
+			System.out.println("No less than 3 and no more than 6 players can play.");
+			System.out.println("Please enter the number of players you want to play: ");
+			numUsers = scan.nextInt();
+		}
+		
+		//for (int c = 0; c <)
+		
+		for (int i = 0; i < numUsers - 1; i++) {
+			System.out.println("Name of player " + i + " :");
+			String playerName = scan.next();
+			
+			Player player = new Player(playerName);
+			players.add(playerName);	
+		}
+		
+		for (int j = 0; j<deck.getSize();j++)
+			{
+				int personCount = 0;
+				while(personCount < players.size() && deck.getSize() >= 1 )
+				{
+					Card acard = deck.deal();
+					players.get(personCount).addCard(acard);
+					personCount++;
+				}
+			}	
+		
+	}	
+
+	public static void main(String[] args) {
 		
 		// switch statement for languages
 		System.out.println("Are you destined to die alone?");
@@ -25,36 +57,11 @@ public class Table {
 		
 		// finish rules later
 		
-		System.out.println("How many players?"); // set max amount of players
-		int numUsers = scan.nextInt();
-		// must be greater than 2
+	
 		
-		ArrayList<Player> players = new ArrayList<Player>(); // fix this stuff for player construct
+	
 		
-		
-//		for (int i = 0; i < numUsers - 1; i++) {
-//		System.out.println("Name of player " + i + " :");
-//		String playerName = scan.next();
-//			for (int j = 0; j < i; j++) {
-//				Player players = new Player(playerName);
-//				players.add(players);	
-//			}
-//			
-//			
-			
-		// how to give each player a hand if the player is inputting the amount of players(i)	
+	}
 
-
-		for (int j = 0; j<deck.getSize();j++)
-			{
-				int personCount = 0;
-				while(personCount < players.size() && deck.getSize() >= 1 )
-				{
-					Card acard = deck.deal();
-					players.get(personCount).addCard(acard);
-					personCount++;
-				}
-			}	
-	}			
 
 }
